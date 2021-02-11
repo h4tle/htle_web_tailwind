@@ -1,10 +1,11 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Login from "../views/Login.vue";
-import Users from "../views/Users";
-import Home from "../views/Home";
-import Register from "../views/Register";
-import UserPage from "../views/UserPage";
+// import Vue from "vue";
+import {createWebHistory, createRouter} from "vue-router";
+import Login from "@/views/Login";
+import Users from "@/views/Users";
+import Home from "@/views/Home";
+import Register from "@/views/Register";
+import UserPage from "@/views/UserPage";
+// import Login from '../views/Login';
 
 Vue.use(VueRouter);
 
@@ -12,16 +13,6 @@ Vue.use(VueRouter);
 
 const routes = [
   
-  {
-    path: "/UserPage",
-    name: "UserPage",
-    component: UserPage,
-  },
-  {
-    path: "/Register",
-    name: "Register",
-    component: Register,
-  },
   {
     path: "/",
     name: "Home",
@@ -33,15 +24,25 @@ const routes = [
     component: Login,
   },
   {
+    path: "/Register",
+    name: "Register",
+    component: Register,
+  },
+  {
+    path: "/UserPage",
+    name: "UserPage",
+    component: UserPage,
+  },
+  {
     path: "/Users",
     name: "Users",
     component: Users,
   },
 ];
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHistory(),
   routes,
-  mode: "history",
 });
 
 export default router;

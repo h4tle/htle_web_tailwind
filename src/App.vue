@@ -1,6 +1,10 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div>
+      <router-link to="{ name: 'Home' }">Home</router-link> |
+      <!-- <router-link to="/about">About</router-link> -->
+  </div>
 </template>
 
 <script setup>
