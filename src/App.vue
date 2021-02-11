@@ -1,14 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
   <div>
-      <router-link to="{ name: 'Home' }">Home</router-link> |
+      <router-link to="/">Home</router-link> |
+      <router-link to="/Users">Users</router-link> |
       <!-- <router-link to="/about">About</router-link> -->
+      <router-view></router-view>
   </div>
 </template>
 
-<script setup>
-import Navbar from "./components/Navbar";
+<script>
+import Navbar from "./components/Navbar.vue";
 
 export default {
   name: "App",

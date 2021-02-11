@@ -1,9 +1,5 @@
-import Vue from "vue";
-
 // https://vuex.vuejs.org/
-
 import Vuex from "vuex";
-import router from "../router/index";
 
 
 // https://www.npmjs.com/package/axios
@@ -11,14 +7,13 @@ import router from "../router/index";
 // Import axios/index.js singleton instance
 import axios from "../axios/index.js";
 
-Vue.use(Vuex);
 
 export default new Vuex.Store({
   // https://vuex.vuejs.org/guide/state.html
 
   state: {
     user: null,
-    users: null,
+    users: [],
     token: null,
   },
 
@@ -42,11 +37,11 @@ export default new Vuex.Store({
   // https://vuex.vuejs.org/guide/actions.html
 
   actions: {
-    async getUsers({ commit }) {
-      if (state.users.length < 1) {
+    async getUsers(context) {
+      if (context.state.users.length < 1) {
       try {
         const response = await axios.get("/users");
-        commit("setUsers", response.data);
+        context.commit("setUsers", response.data);
       } catch (error) {
         console.log(error);
         router.push("/login");
