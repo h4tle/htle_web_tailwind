@@ -1,10 +1,10 @@
 // import Vue from "vue";
 import {createWebHistory, createRouter} from "vue-router";
-import Login from "@/views/Login";
-import Users from "@/views/Users";
-import Home from "@/views/Home";
-import Register from "@/views/Register";
-import UserPage from "@/views/UserPage";
+import Login from "../views/Login";
+import Users from "../views/Users";
+import Home from "../views/Home";
+// import Register from "../views/Register";
+// import UserPage from "../views/UserPage";
 // import Login from '../views/Login';
 
 Vue.use(VueRouter);
