@@ -1,12 +1,10 @@
 // https://vuex.vuejs.org/
 import Vuex from "vuex";
 
-
 // https://www.npmjs.com/package/axios
 
 // Import axios/index.js singleton instance
 import axios from "../axios/index.js";
-
 
 export default new Vuex.Store({
   // https://vuex.vuejs.org/guide/state.html
@@ -15,6 +13,7 @@ export default new Vuex.Store({
     user: null,
     users: [],
     token: null,
+    showLogin: false,
   },
 
   // https://vuex.vuejs.org/guide/mutations.html
@@ -32,21 +31,27 @@ export default new Vuex.Store({
     setTokenFromSession(state) {
       state.token = sessionStorage.getItem("Token");
     },
+    toggleShowLogin(state) {
+      state.showLogin = !state.showLogin;
+    },
   },
 
   // https://vuex.vuejs.org/guide/actions.html
 
   actions: {
+    toggleShowLogin(context) {
+      context.commit("toggleShowLogin");
+    },
     async getUsers(context) {
       if (context.state.users.length < 1) {
-      try {
-        const response = await axios.get("/users");
-        context.commit("setUsers", response.data);
-      } catch (error) {
-        console.log(error);
-        router.push("/login");
+        try {
+          const response = await axios.get("/users");
+          context.commit("setUsers", response.data);
+        } catch (error) {
+          console.log(error);
+          router.push("/login");
+        }
       }
-    }
     },
   },
 

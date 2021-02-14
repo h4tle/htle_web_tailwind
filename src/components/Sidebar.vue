@@ -1,57 +1,21 @@
 <template>
-  <!-- This is an example component -->
-
-  <div class="flex flex-row h-full">
-    <!-- Sidebar -->
-    <nav class="bg-htle_sidebar w-12 justify-between h-screen">
-      <div class="mt-10 mb-10">
-        <div class="mt-10">
-          <ul>
-            <li class="mb-6">
-              <a href="#">
-                <span>
-                  <!-- svg 1 -->
-                </span>
-              </a>
-            </li>
-            <li class="mb-6">
-              <a href="#">
-                <span>
-                  <!-- svg 2 -->
-                </span>
-              </a>
-            </li>
-            <li class="mb-6">
-              <a href="#">
-                <span>
-                  <!-- svg 3 -->
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span>
-                  <!-- svg 4 -->
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="mb-4">
-        <a href="#">
-          <span>
-            <!-- svg bottom  -->
-          </span>
-        </a>
-      </div>
-    </nav>
-    <!-- Content -->
-    <!-- <Login /> -->
+  <div
+    class="bg-htle_sidebar w-12 min-h-screen max-h-screen fixed text-blue-500 flex flex-col items-center justify-center"
+  >
+    <CodeSvg class="w-8 hover:animate-bounce text-red-600" />
+    <Dank />
   </div>
 </template>
 
 <script>
+import CodeSvg from "../assets/svg/code.svg";
+import Dank from "../assets/svg/dank.svg";
+export default {
+  components: {
+    CodeSvg,
+    Dank,
+  },
+};
 // import Login from "../views/Login.vue";
 // export default {
 //   components: {
