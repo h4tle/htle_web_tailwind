@@ -1,39 +1,71 @@
 <template>
-  <div class="flex htle_yellow py-12 justify-center">
-    <div class="p-8 text-center max-w-2xl">
-      <div class="md:text-3xl text-3xl font-bold">h4tle</div>
-      <div class="text-xl font-normal mt-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor.
+  <!-- Hero Section -->
+  <div class="flex flex-col">
+    <!-- Yellow Dashboard  -->
+    <div class="flex justify-center font-bold pb-0">Yellow</div>
+    <div class="flex justify-center transform rotate-180 font-bold pt-0">
+      Dashboard
+    </div>
+    <!--Register & Login buttons  -->
+    <div class="flex justify-end">
+      <button @click="this.$store.dispatch('toggleShowRegister')" class="mr-2">
+        Register
+      </button>
+      <button @click="this.$store.dispatch('toggleShowLogin')" class="mr-2">
+        Login
+      </button>
+    </div>
+    <!-- Welcome text -->
+    <div class="flex justify-center text-9xl">
+      <p class="mt-8">W E L C O M E</p>
+    </div>
+  </div>
+  <div class="mb-48">
+    <!-- Slider x2 -->
+    <swiper
+      :slides-per-view="1"
+      :space-between="50"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
+      :autoplay="{ delay: 5000 }"
+    >
+      <swiper-slide class="flex justify-center"
+        >This is a place where we ..</swiper-slide
+      >
+      <swiper-slide class="flex justify-center"
+        >.. like to test things :)</swiper-slide
+      >
+      ...
+    </swiper>
+  </div>
+  <div class="flex justify-center">
+    <div class="flex justify-center h-12 w-72 bg-htle_beige">Login</div>
+  </div>
+  <!--  -->
+  <div class="bg-htle_beige">
+    <div>
+      <div class="flex justify-center">
+        <div class="flex justify-center h-12 w-72 bg-htle_yellow mr-44">
+          Register
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   </div>
-  <div class="flex flex-col">
-    <logo class="w-8 self-center" />
-  </div>
-  <div>
-    <button
-      @click="this.$store.dispatch('toggleShowLogin')"
-      class="flex flex-col"
-    >
-      Login
-    </button>
-  </div>
-  <br />
-  <button @click="this.$store.dispatch('toggleShowRegister')">Register</button>
-
-  <swiper
-    :slides-per-view="1"
-    :space-between="50"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-    :autoplay="{ delay: 5000 }"
-  >
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    ...
-  </swiper>
 </template>
  
 <script>
