@@ -1,7 +1,24 @@
 <template>
-  <h1 class="text-black">h4tle</h1>
-  <img src="./src/assets/logo.png" alt="logo" />
-  <button @click="this.$store.dispatch('toggleShowLogin')">Login</button>
+  <div class="flex htle_yellow py-12 justify-center">
+    <div class="p-8 text-center max-w-2xl">
+      <div class="md:text-3xl text-3xl font-bold">h4tle</div>
+      <div class="text-xl font-normal mt-4">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <logo class="w-8 self-center" />
+  </div>
+  <div>
+    <button
+      @click="this.$store.dispatch('toggleShowLogin')"
+      class="flex flex-col"
+    >
+      Login
+    </button>
+  </div>
   <br />
   <button @click="this.$store.dispatch('toggleShowRegister')">Register</button>
 
@@ -20,6 +37,8 @@
 </template>
  
 <script>
+import logo from "../assets/svg/logo.svg";
+
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { Autoplay } from "swiper";
 import "swiper/swiper.scss";
@@ -27,6 +46,11 @@ import "swiper/swiper.scss";
 SwiperCore.use([Autoplay]);
 
 export default {
+  data: function () {
+    return {
+      image: logo,
+    };
+  },
   components: {
     Swiper,
     SwiperSlide,
