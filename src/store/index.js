@@ -14,6 +14,7 @@ export default new Vuex.Store({
     users: [],
     token: null,
     showLogin: false,
+    showRegister: false,
   },
 
   // https://vuex.vuejs.org/guide/mutations.html
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     toggleShowLogin(state) {
       state.showLogin = !state.showLogin;
     },
+    toggleShowRegister(state) {
+      state.showRegister = !state.showRegister;
+    },
   },
 
   // https://vuex.vuejs.org/guide/actions.html
@@ -41,6 +45,9 @@ export default new Vuex.Store({
   actions: {
     toggleShowLogin(context) {
       context.commit("toggleShowLogin");
+    },
+    toggleShowRegister(context) {
+      context.commit("toggleShowRegister");
     },
     async getUsers(context) {
       if (context.state.users.length < 1) {

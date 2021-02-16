@@ -1,12 +1,16 @@
 <template>
   <h1 class="text-black">h4tle</h1>
+  <img src="./src/assets/logo.png" alt="logo" />
   <button @click="this.$store.dispatch('toggleShowLogin')">Login</button>
+  <br />
+  <button @click="this.$store.dispatch('toggleShowRegister')">Register</button>
+
   <swiper
     :slides-per-view="1"
     :space-between="50"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
-    :autoplay="{ delay: 50000 }"
+    :autoplay="{ delay: 5000 }"
   >
     <swiper-slide>Slide 1</swiper-slide>
     <swiper-slide>Slide 2</swiper-slide>
