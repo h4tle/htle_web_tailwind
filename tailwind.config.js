@@ -2,8 +2,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   theme: {
-    fontFamily: {
-    },
+    fontFamily: {},
     extend: {
       colors: {
         htle_yellow: "#FCE373",
@@ -16,6 +15,7 @@ module.exports = {
     extend: {
       opacity: ["disabled"],
       animation: ["hover"],
+      transform: ["hover", "group-hover"],
     },
   },
 };

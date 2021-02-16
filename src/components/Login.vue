@@ -16,7 +16,7 @@
         />
         <input
           v-model="password"
-          type="text"
+          type="password"
           placeholder="Password"
           class="block w-full mx-auto text-sm py-2 px-3 rounded my-3"
         />

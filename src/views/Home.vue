@@ -1,22 +1,27 @@
 <template>
   <!-- Hero Section -->
-  <div class="flex flex-col">
+  <div class="flex flex-col items-center">
     <!-- Yellow Dashboard  -->
-    <div class="flex justify-center font-bold pb-0">Yellow</div>
-    <div class="flex justify-center transform rotate-180 font-bold pt-0">
-      Dashboard
+    <div class="grid grid-cols-3 w-full">
+      <div></div>
+      <div class="text-center">
+        <div class="font-bold pb-0">Yellow</div>
+        <div class="transform rotate-180 font-bold pt-0">Dashboard</div>
+      </div>
+      <div class="flex gap-2 justify-end">
+        <button @click="this.$store.dispatch('toggleShowRegister')">
+          Register
+        </button>
+        <button @click="this.$store.dispatch('toggleShowLogin')" class="mr-2">
+          Login
+        </button>
+      </div>
     </div>
     <!--Register & Login buttons  -->
-    <div class="flex justify-end">
-      <button @click="this.$store.dispatch('toggleShowRegister')" class="mr-2">
-        Register
-      </button>
-      <button @click="this.$store.dispatch('toggleShowLogin')" class="mr-2">
-        Login
-      </button>
-    </div>
+    <Logo class="h-96 w-96 text-gray-900" />
+
     <!-- Welcome text -->
-    <div class="flex justify-center text-9xl">
+    <div class="text-9xl">
       <p class="mt-8">W E L C O M E</p>
     </div>
   </div>
@@ -39,15 +44,26 @@
     </swiper>
   </div>
   <div class="flex justify-center">
-    <div class="flex justify-center h-12 w-72 bg-htle_beige">Login</div>
+    <button
+      class="group overflow-hidden text-htle_yellow relative h-12 w-72 bg-htle_sidebar"
+    >
+      <span
+        class="bg-htle_beige absolute group-hover:transform-none transform -translate-x-full duration-500 hover:transform-none top-0 left-0 w-full h-full"
+      >
+        <span class="transform translate-x-full">
+          <span class="">Login</span>
+        </span>
+      </span>
+      <span href="" class="">Login</span>
+    </button>
   </div>
   <!--  -->
   <div class="bg-htle_beige">
     <div>
       <div class="flex justify-center">
-        <div class="flex justify-center h-12 w-72 bg-htle_yellow mr-44">
+        <button class="flex justify-center h-12 w-72 bg-htle_yellow mr-44">
           Register
-        </div>
+        </button>
         <br />
         <br />
         <br />
@@ -69,7 +85,7 @@
 </template>
  
 <script>
-import logo from "../assets/svg/logo.svg";
+import Logo from "../assets/logo.svg";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { Autoplay } from "swiper";
@@ -80,12 +96,13 @@ SwiperCore.use([Autoplay]);
 export default {
   data: function () {
     return {
-      image: logo,
+      // image: logo,
     };
   },
   components: {
     Swiper,
     SwiperSlide,
+    Logo,
   },
 };
 </script>
