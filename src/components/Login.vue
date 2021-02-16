@@ -11,7 +11,7 @@
         <input
           v-model="email"
           type="text"
-          placeholder="Username"
+          placeholder="Email"
           class="block w-full mx-auto text-sm py-2 px-3 rounded"
         />
         <input
