@@ -45,41 +45,52 @@
   </div>
   <div class="flex justify-center">
     <button
-      class="group overflow-hidden text-htle_yellow relative h-12 w-72 bg-htle_sidebar"
+      class="group overflow-hidden text-htle_yellow hover:text-htle_sidebar relative h-12 w-72 bg-htle_sidebar"
     >
       <span
-        class="bg-htle_beige absolute group-hover:transform-none transform -translate-x-full duration-500 hover:transform-none top-0 left-0 w-full h-full"
+        class="bg-htle_beige text-htle_sidebar absolute group-hover:transform-none transform -translate-x-full duration-700 hover:transform-none top-0 left-0 w-full h-full"
       >
         <span class="transform translate-x-full">
-          <span class="">Login</span>
+          <a href="" class="font-bold text-htle_yellow hover:text-htle_sidebar"
+            >L o g i n
+          </a>
         </span>
       </span>
-      <span href="" class="">Login</span>
+      <span>
+        <a href="" class="font-bold text-htle_yellow hover:text-htle_sidebar"
+          >L o g i n
+        </a>
+      </span>
     </button>
   </div>
   <!--  -->
   <div class="bg-htle_beige">
-    <div>
-      <div class="flex justify-center">
-        <button class="flex justify-center h-12 w-72 bg-htle_yellow mr-44">
-          Register
-        </button>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-      </div>
+    <div class="flex justify-center">
+      <button
+        class="group overflow-hidden text-htle_sidebar hover:text-htle_yellow relative h-12 w-72 bg-htle_yellow mr-44"
+      >
+        <span
+          class="bg-htle_sidebar text-htle_sidebar absolute group-hover:transform-none transform translate-x-full duration-700 hover:transform-none top-0 left-0 w-full h-full"
+        >
+          <span class="transform translate-x-full"> </span>
+        </span>
+        <span href="" class="font-bold">R e g i s t e r</span>
+      </button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   </div>
 </template>
