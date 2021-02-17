@@ -5,8 +5,8 @@
     <div class="grid grid-cols-3 w-full">
       <div></div>
       <div class="text-center">
-        <div class="font-bold pb-0">Yellow</div>
-        <div class="transform rotate-180 font-bold pt-0">Dashboard</div>
+        <div class="font-bold pb-0">Y E L L O W</div>
+        <div class="transform rotate-180 font-bold pt-0">D A S H B O A R D</div>
       </div>
       <div class="flex gap-2 justify-end">
         <button @click="this.$store.dispatch('toggleShowRegister')">
@@ -25,7 +25,7 @@
       <p class="mt-8">W E L C O M E</p>
     </div>
   </div>
-  <div class="mb-48">
+  <div class="mb-20">
     <!-- Slider x2 -->
     <swiper
       :slides-per-view="1"
@@ -78,6 +78,10 @@
       </button>
       <br />
       <br />
+      <form name="MyForm" id="MyForm" action="">
+        Select a file to upload:
+        <input type="file" id="m_File" runat="server" />
+      </form>
       <br />
       <br />
       <br />
