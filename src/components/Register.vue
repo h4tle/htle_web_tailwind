@@ -23,13 +23,8 @@
           placeholder="Password"
           class="block w-full mx-auto text-sm py-2 px-3 rounded my-3"
         />
-        <label for="firstName">Fornavn</label>
-        <input
-          v-model="firstName"
-          placeholder="Anne"
-          id="firstName"
-          type="text"
-        />
+        <label for="name">Fornavn</label>
+        <input v-model="name" placeholder="Anne" id="name" type="text" />
         <button
           type="submit"
           class="bg-blue text-black font-bold py-2 px-4 rounded border block mx-auto w-full"
@@ -51,24 +46,33 @@ export default {
     return {
       email: "",
       password: "",
-      firstName: "",
-      lastName: "",
-      phoneNo: "",
+      name: "",
     };
   },
 
   methods: {
     ...mapMutations(["setUser", "setToken"]),
     async Register() {
-      var user = JSON.stringify({
-        FirstName: this.firstName,
-        LastName: this.lastName,
-        Email: this.email,
-        PhoneNo: this.phoneNo,
-        Password: this.password,
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        name: this.name,
+        email: this.email,
+        password: this.password,
       });
-      await axios.post("/users", user);
-      this.$router.push("/Login");
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch("http://localhost:3007/api/user/register", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
     },
   },
 };

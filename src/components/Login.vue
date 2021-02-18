@@ -47,32 +47,28 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["setUser", "setToken"]),
+    ...mapMutations([, "setToken"]),
     async Login() {
-      var vm = this;
-      try {
-        const params = new URLSearchParams();
-        params.append("username", this.email);
-        params.append("password", this.password);
-        params.append("grant_type", "password");
-        const response = await axios.post("/token", params, {
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        });
-        console.log(response);
-        if (response.data.access_token != null) {
-          sessionStorage.setItem("Token", response.data.access_token);
-          axios.defaults.headers.common["Authorization"] =
-            "Bearer " + response.data.access_token;
-          const user = await (await axios.get("/users/myuser")).data;
-          this.$store.commit("setUser", user);
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
 
-          // setTimeout(() => {
-          await vm.$router.push("/UserPage");
-          // }, 2000);
-        }
-      } catch (error) {
-        console.error(error);
-      }
+      var raw = JSON.stringify({
+        email: this.email,
+        password: this.password,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+        // body: JSON.stringify(data),
+      };
+
+      fetch("http://lvh.me:3007/api/user/login", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
     },
   },
 };
