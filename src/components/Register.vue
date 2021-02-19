@@ -5,7 +5,7 @@
   >
     <div class="bg-white mx-auto max-w-md mt-12">
       <form
-        @submit.prevent="Register"
+        @submit.prevent="register"
         method="Register"
         class="bg-blue text-center w-1/3 px-3 py-4 text-black mx-auto rounded"
       >
@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-import axios from "../axios/index.js";
-
+// import Close from "../assets/svg/close.svg";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/storage";
 export default {
-  name: "Register",
   data: function () {
     return {
       email: "",
@@ -49,30 +49,26 @@ export default {
       name: "",
     };
   },
-
+  created() {
+    // firebase.initializeApp({
+    //   apiKey: "AIzaSyCyMkmqbGh2K7k6dqOBpF9yAs6Hn7qaak0",
+    //   authDomain: "htle-firebase.firebaseapp.com",
+    //   projectId: "htle-firebase",
+    //   storageBucket: "htle-firebase.appspot.com",
+    //   messagingSenderId: "477507975908",
+    //   appId: "1:477507975908:web:4dd802f346969585f60af1",
+    //   measurementId: "G-5VBC7N3YY7",
+    // });
+  },
   methods: {
-    ...mapMutations(["setUser", "setToken"]),
-    async Register() {
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-
-      var raw = JSON.stringify({
-        name: this.name,
-        email: this.email,
-        password: this.password,
-      });
-
-      var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow",
-      };
-
-      fetch("http://localhost:3007/api/user/register", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.log("error", error));
+    register() {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((userCrendential) => {
+          console.log(userCrendential.user);
+        })
+        .catch((error) => console.log(error));
     },
   },
 };
