@@ -78,10 +78,7 @@
       </button>
       <br />
       <br />
-      <form name="MyForm" id="MyForm" action="">
-        Select a file to upload:
-        <input type="file" id="m_File" runat="server" />
-      </form>
+
       <br />
       <br />
       <br />
