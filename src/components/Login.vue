@@ -3,11 +3,10 @@
     @click.self="this.$store.dispatch('toggleShowLogin')"
     class="bg-gray-500 bg-opacity-40 fixed top-0 left-0 w-screen h-screen"
   >
-    <Close class="fixed w-12 text-red-700" />
-
     <div class="bg-white mx-auto max-w-md mt-12">
+      <Close class="w-12 text-red-700" />
       <form
-        @submit.prevent="Login"
+        @submit.prevent="login()"
         class="bg-blue text-center w-1/3 px-3 py-4 text-black mx-auto rounded"
       >
         <input
