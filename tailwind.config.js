@@ -1,8 +1,9 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+  mode: 'jit',
+  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    fontFamily: {},
     extend: {
       colors: {
         htle_yellow: "#FCE373",
@@ -11,11 +12,14 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      opacity: ["disabled"],
-      animation: ["hover"],
-      transform: ["hover", "group-hover"],
-    },
-  },
+
+  // vi fjerner dette pis for at være hurtige
+  
+  // variants: {
+  //   extend: {
+  //     opacity: ["disabled"],
+  //     animation: ["hover"],
+  //     transform: ["hover", "group-hover"],
+  //   },
+  // },
 };

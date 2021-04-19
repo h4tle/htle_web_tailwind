@@ -3,10 +3,10 @@
 
   <div class="bg-htle_yellow ml-12">
     <router-view></router-view>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
-  <Login v-show="this.$store.state.showLogin" />
-  <Register v-show="this.$store.state.showRegister" />
+  <!-- <Login v-show="this.$store.state.showLogin" />
+  <Register v-show="this.$store.state.showRegister" /> -->
 </template>
 
 <script>

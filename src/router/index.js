@@ -37,6 +37,13 @@ export default createRouter({
       name: "Users",
       component: Users,
     },
+    //lidt sejere - lazy load
+    {
+      path: "/Search",
+      name: "Search",
+      component: () => import("../views/Search.vue") ,
+    },
+    
   ],
 });
 
